@@ -14,7 +14,7 @@ This example walks through the setup and configuration of both Azure AD and the 
 
 * Name: alpha-team-oidc
 * Supported account types: Accounts in any org directory
-*  Redirect URI: Web, https://<kong-proxy-hostname>/httpbin-azure
+*  Redirect URI: Web, `https://<kong-proxy-hostname>/httpbin-azure`
 
 2. Take Note of the following credentials and paste them into notepad
 

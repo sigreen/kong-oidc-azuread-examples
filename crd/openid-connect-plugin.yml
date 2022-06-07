@@ -1,0 +1,33 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: oidc-auth
+config:
+  auth_methods:
+      - password
+      - client_credentials
+      - authorization_code
+      - bearer
+      - introspection
+      - userinfo
+      - kong_oauth2
+      - refresh_token
+      - session
+  issuer: https://login.microsoftonline.com/<azure tenant id>/v2.0
+  client_id:
+  - <azure application (client) id>
+  client_secret:
+  - <azure client (value)>
+  consumer_by:
+  - username
+  - custom_id
+  consumer_claim:
+  - aud
+  display_errors: true
+  redirect_uri:
+  - https://<kong-proxy-host>/foo
+  scopes:
+      - openid
+      - <azure application (client) id>/.default
+  verify_parameters: false
+plugin: openid-connect

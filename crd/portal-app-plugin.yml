@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: application-registration
+config: 
+  auto_approve: false
+  description: Demo Service to demo application registration on the Developer Portal
+  display_name: Demo Service
+  show_issuer: false
+plugin: application-registration

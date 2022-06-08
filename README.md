@@ -36,7 +36,7 @@ kubectl apply -f https://bit.ly/echo-service -n kong
 2. Create a Basic Proxy
 
 ```
-kubectl apply -f crd/01-ingress.yml -n kong
+kubectl apply -f crd/ingress.yml -n kong
 ```
 
 This will apply the Ingress object to the Kubernetes API which will be intercepted by the Kong Ingress Controller and applied to Kong config.
@@ -57,3 +57,10 @@ kubectl apply -f crd/portal-app-plugin.yml -n kong
 ```
 kubectl apply -f crd/portalreg-openid-ingress.yml -n kong
 ```
+
+6. Finally, we need to patch the service to include the application-registration plugin (as this plugin cannot be applied at the route level):
+
+```
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"application-registration"}}}' -n kong
+```
+

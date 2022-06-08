@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: demo
   annotations:
-    konghq.com/plugins: application-registration, oidc-auth
+    konghq.com/plugins: oidc-auth
 spec:
   ingressClassName: kong
   rules:
